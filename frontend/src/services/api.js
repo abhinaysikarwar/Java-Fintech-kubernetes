@@ -1,4 +1,4 @@
-﻿const BASE_URL = 'http://localhost:8080/api';
+﻿const BASE_URL = 'http://api.bank.abhinay123.online:8080/api';
 
 function getToken() {
   return localStorage.getItem('ledgerline_token');
