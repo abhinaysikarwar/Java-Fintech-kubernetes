@@ -1,24 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata: 
-  name: frontend
+metadata:
+  name: backend
   namespace: banking
 
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: frontend
+      app: backend
+
   template:
     metadata:
       labels:
-        app: frontend
+        app: backend
+
     spec:
       nodeSelector:
         kubernetes.io/hostname: worker-node-1
+
       containers:
-        - name: frontend
-          image: manas181996/frontend:1.0
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 80
+      - name: backend
+        image: abhinay281141/backend:1.0   # <-- apni image ka sahi naam likho
+        imagePullPolicy: Always
+
+        ports:
+        - containerPort: 8080
