@@ -21,33 +21,6 @@ spec:
 
       containers:
       - name: backend
-        image: abhinay281141/backend:1.0   # <-- apni image ka sahi naam likho
-        imagePullPolicy: Always
-
-        ports:
-        - containerPort: 8080apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: backend
-  namespace: banking
-
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: backend
-
-  template:
-    metadata:
-      labels:
-        app: backend
-
-    spec:
-      nodeSelector:
-        kubernetes.io/hostname: worker-node-1
-
-      containers:
-      - name: backend
         image: abhinay281141/backend:1.0
         imagePullPolicy: Always
 
@@ -66,3 +39,6 @@ spec:
 
         - name: JWT_SECRET
           value: 3f8b9c1a7d2e4f6091b8c3a5d7e9f1023f8b9c1a7d2e4f6091b8c3a5d7e9f102
+
+        - name: CORS_ALLOWED_ORIGIN
+          value: https://bank.abhinay123.online
